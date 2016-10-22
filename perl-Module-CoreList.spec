@@ -4,14 +4,12 @@ Name:           %{?scl_prefix}perl-Module-CoreList
 # Epoch to compete with perl.spec
 Epoch:          1
 Version:        5.20160720
-Release:        3%{?dist}
+Release:        2%{?dist}
 Summary:        What modules are shipped with versions of perl
 License:        GPL+ or Artistic
 Group:          Development/Libraries
 URL:            http://search.cpan.org/dist/Module-CoreList/
 Source0:        http://www.cpan.org/authors/id/B/BI/BINGOS/Module-CoreList-%{version}.tar.gz
-# Avoid loading optional modules from default . (CVE-2016-1238)
-Patch0:         Module-CoreList-5.20160720-CVE-2016-1238-avoid-loading-optional-modules-from.patch
 BuildArch:      noarch
 BuildRequires:  findutils
 BuildRequires:  make
@@ -72,7 +70,6 @@ modules were shipped with given perl version.
 
 %prep
 %setup -q -n Module-CoreList-%{version}
-%patch0 -p1
 
 %build
 %{?scl:scl enable %{scl} '}perl Makefile.PL INSTALLDIRS=vendor && make %{?_smp_mflags}%{?scl:'}
@@ -96,9 +93,6 @@ find $RPM_BUILD_ROOT -type f -name .packlist -delete
 %{_mandir}/man1/corelist.*
 
 %changelog
-* Fri Aug 05 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1:5.20160720-3
-- Avoid loading optional modules from default . (CVE-2016-1238)
-
 * Thu Jul 21 2016 Petr Pisar <ppisar@redhat.com> - 1:5.20160720-2
 - SCL
 
