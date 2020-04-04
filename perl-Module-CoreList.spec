@@ -10,8 +10,8 @@
 Name:           %{?scl_prefix}perl-Module-CoreList
 # Epoch to compete with perl.spec
 Epoch:          1
-Version:        5.20191120
-Release:        2%{?dist}
+Version:        5.20191220
+Release:        1%{?dist}
 Summary:        What modules are shipped with versions of perl
 License:        GPL+ or Artistic
 URL:            https://metacpan.org/release/Module-CoreList
@@ -87,6 +87,9 @@ unset PERL_CORE
 %{_mandir}/man1/corelist.*
 
 %changelog
+* Thu Jan 09 2020 Jitka Plesnikova <jplesnik@redhat.com> - 1:5.20191220-1
+- 5.20191220 bump
+
 * Mon Nov 25 2019 Jitka Plesnikova <jplesnik@redhat.com> - 1:5.20191120-2
 - SCL
 
